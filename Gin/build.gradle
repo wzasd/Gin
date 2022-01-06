@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.jetbrains.dokka'
+    id 'binary-compatibility-validator'
+    id 'com.vanniktech.maven.publish'
+}
+
+apply from: "$rootDir/dependencies.gradle"
+
+android {
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        minSdk versions.minSdk
+        targetSdk versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$versions.core_ktx"
+    implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVersion"
+    api "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    api "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
+
+    // unit test
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "org.mockito:mockito-core:$versions.mockito"
+    testImplementation "org.mockito:mockito-inline:$versions.mockito"
+    testImplementation "org.robolectric:robolectric:$versions.robolectric"
+    testImplementation "androidx.arch.core:core-testing:$versions.archCore"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttpVersion"
+    testImplementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin"
+}
+
+apply plugin: "com.vanniktech.maven.publish"
