@@ -7,6 +7,7 @@ plugins {
 }
 
 apply from: "$rootDir/dependencies.gradle"
+apply from: '../spotless.gradle'
 
 android {
     compileSdk versions.compileSdk
@@ -36,6 +37,14 @@ android {
     }
 }
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions.freeCompilerArgs += [
+            "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xexplicit-api=strict"
+    ]
+}
+
+
 dependencies {
     implementation "androidx.core:core-ktx:$versions.core_ktx"
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
@@ -54,4 +63,3 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin"
 }
 
-apply plugin: "com.vanniktech.maven.publish"

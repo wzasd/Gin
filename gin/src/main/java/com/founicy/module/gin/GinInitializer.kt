@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2020 founicy(Jeffrey wang)
+ * Designed and developed by 2020 wzasd (Jeffrey wang)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public object GinInitializer {
   public var dlGinOperatorContext: CoroutineContext = Dispatchers.IO + GlobalScope.coroutineContext
 
   /**
-    
+
    *
    * A global [Timeout] for operating the [com.founicy.module.gin.coroutines.CoroutinesResponseCallAdapterFactory]
    * or [com.founicy.module.gin.coroutines.CoroutinesResponseCallAdapterFactory] when API requests.

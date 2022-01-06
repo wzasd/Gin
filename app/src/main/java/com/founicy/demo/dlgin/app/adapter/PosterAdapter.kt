@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2020 founicy(Jeffrey wang)
+ * Designed and developed by 2020 wzasd (Jeffrey wang)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@ package com.founicy.demo.dlgin.app.adapter
 
 import android.view.View
 import com.founicy.demo.dlgin.app.R
+import com.founicy.demo.dlgin.app.model.Poster
 import com.skydoves.baserecyclerviewadapter.BaseAdapter
 import com.skydoves.baserecyclerviewadapter.SectionRow
-import com.founicy.demo.dlgin.app.model.Poster
 
 class PosterAdapter : BaseAdapter() {
 

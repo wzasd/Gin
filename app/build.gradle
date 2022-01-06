@@ -5,6 +5,7 @@ plugins {
 }
 
 apply from: "$rootDir/dependencies.gradle"
+apply from: "$rootDir/spotless.gradle"
 
 android {
     compileSdk versions.compileSdk
@@ -29,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "11"
     }
     lintOptions {
         abortOnError false
@@ -56,7 +57,6 @@ dependencies {
     // glide
     implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
     implementation project(path: ':gin')
-    kapt "com.github.bumptech.glide:compiler:$versions.glideVersion"
     // adapter
     implementation "com.github.skydoves:baserecyclerviewadapter:$versions.baseAdapter"
     // logging

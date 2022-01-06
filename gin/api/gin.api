@@ -1,0 +1,359 @@
+public abstract interface class com/founicy/module/gin/ApiErrorModelMapper {
+	public abstract fun map (Lcom/founicy/module/gin/ApiResponse$Failure$Error;)Ljava/lang/Object;
+}
+
+public abstract class com/founicy/module/gin/ApiResponse {
+	public static final field Companion Lcom/founicy/module/gin/ApiResponse$Companion;
+	public final fun getStatusCodeFromResponse (Lretrofit2/Response;)Lcom/founicy/module/gin/StatusCode;
+}
+
+public final class com/founicy/module/gin/ApiResponse$Companion {
+	public final fun error (Ljava/lang/Throwable;)Lcom/founicy/module/gin/ApiResponse$Failure$Exception;
+	public final synthetic fun of (Lkotlin/ranges/IntRange;Lkotlin/jvm/functions/Function0;)Lcom/founicy/module/gin/ApiResponse;
+	public static synthetic fun of$default (Lcom/founicy/module/gin/ApiResponse$Companion;Lkotlin/ranges/IntRange;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/founicy/module/gin/ApiResponse;
+	public final fun operate (Lcom/founicy/module/gin/ApiResponse;)Lcom/founicy/module/gin/ApiResponse;
+}
+
+public abstract class com/founicy/module/gin/ApiResponse$Failure {
+}
+
+public final class com/founicy/module/gin/ApiResponse$Failure$Error : com/founicy/module/gin/ApiResponse {
+	public fun <init> (Lretrofit2/Response;)V
+	public final fun component1 ()Lretrofit2/Response;
+	public final fun copy (Lretrofit2/Response;)Lcom/founicy/module/gin/ApiResponse$Failure$Error;
+	public static synthetic fun copy$default (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lretrofit2/Response;ILjava/lang/Object;)Lcom/founicy/module/gin/ApiResponse$Failure$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrorBody ()Lokhttp3/ResponseBody;
+	public final fun getHeaders ()Lokhttp3/Headers;
+	public final fun getRaw ()Lokhttp3/Response;
+	public final fun getResponse ()Lretrofit2/Response;
+	public final fun getStatusCode ()Lcom/founicy/module/gin/StatusCode;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/founicy/module/gin/ApiResponse$Failure$Exception : com/founicy/module/gin/ApiResponse {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lcom/founicy/module/gin/ApiResponse$Failure$Exception;
+	public static synthetic fun copy$default (Lcom/founicy/module/gin/ApiResponse$Failure$Exception;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/founicy/module/gin/ApiResponse$Failure$Exception;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getException ()Ljava/lang/Throwable;
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/founicy/module/gin/ApiResponse$Success : com/founicy/module/gin/ApiResponse {
+	public fun <init> (Lretrofit2/Response;)V
+	public final fun component1 ()Lretrofit2/Response;
+	public final fun copy (Lretrofit2/Response;)Lcom/founicy/module/gin/ApiResponse$Success;
+	public static synthetic fun copy$default (Lcom/founicy/module/gin/ApiResponse$Success;Lretrofit2/Response;ILjava/lang/Object;)Lcom/founicy/module/gin/ApiResponse$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/Object;
+	public final fun getHeaders ()Lokhttp3/Headers;
+	public final fun getRaw ()Lokhttp3/Response;
+	public final fun getResponse ()Lretrofit2/Response;
+	public final fun getStatusCode ()Lcom/founicy/module/gin/StatusCode;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/founicy/module/gin/ApiResponseMergePolicy : java/lang/Enum {
+	public static final field IGNORE_FAILURE Lcom/founicy/module/gin/ApiResponseMergePolicy;
+	public static final field PREFERRED_FAILURE Lcom/founicy/module/gin/ApiResponseMergePolicy;
+	public static fun valueOf (Ljava/lang/String;)Lcom/founicy/module/gin/ApiResponseMergePolicy;
+	public static fun values ()[Lcom/founicy/module/gin/ApiResponseMergePolicy;
+}
+
+public abstract interface class com/founicy/module/gin/ApiSuccessModelMapper {
+	public abstract fun map (Lcom/founicy/module/gin/ApiResponse$Success;)Ljava/lang/Object;
+}
+
+public final class com/founicy/module/gin/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract interface class com/founicy/module/gin/DataResponse {
+	public abstract fun combine (Lretrofit2/Call;Lretrofit2/Callback;)Lcom/founicy/module/gin/DataResponse;
+	public abstract fun concat (Lcom/founicy/module/gin/DataResponse;)Lcom/founicy/module/gin/DataResponse;
+	public abstract fun invalidate ()V
+	public abstract fun joinDisposable (Lcom/founicy/module/gin/disposables/CompositeDisposable;)Lcom/founicy/module/gin/DataResponse;
+	public abstract fun observeResponse (Lcom/founicy/module/gin/ResponseObserver;)Lcom/founicy/module/gin/DataResponse;
+	public abstract fun request ()Lcom/founicy/module/gin/DataResponse;
+	public abstract fun retry (IJ)Lcom/founicy/module/gin/DataResponse;
+}
+
+public final class com/founicy/module/gin/DataResponse$ConcatStrategy : java/lang/Enum {
+	public static final field BREAK Lcom/founicy/module/gin/DataResponse$ConcatStrategy;
+	public static final field CONTINUOUS Lcom/founicy/module/gin/DataResponse$ConcatStrategy;
+	public static fun valueOf (Ljava/lang/String;)Lcom/founicy/module/gin/DataResponse$ConcatStrategy;
+	public static fun values ()[Lcom/founicy/module/gin/DataResponse$ConcatStrategy;
+}
+
+public final class com/founicy/module/gin/DataResponseCallAdapter : retrofit2/CallAdapter {
+	public fun <init> (Ljava/lang/reflect/Type;)V
+	public fun adapt (Lretrofit2/Call;)Lcom/founicy/module/gin/DataResponse;
+	public synthetic fun adapt (Lretrofit2/Call;)Ljava/lang/Object;
+	public fun responseType ()Ljava/lang/reflect/Type;
+}
+
+public final class com/founicy/module/gin/DataResponseCallAdapterFactory : retrofit2/CallAdapter$Factory {
+	public static final field Companion Lcom/founicy/module/gin/DataResponseCallAdapterFactory$Companion;
+	public static final fun create ()Lcom/founicy/module/gin/DataResponseCallAdapterFactory;
+	public fun get (Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/CallAdapter;
+}
+
+public final class com/founicy/module/gin/DataResponseCallAdapterFactory$Companion {
+	public final fun create ()Lcom/founicy/module/gin/DataResponseCallAdapterFactory;
+}
+
+public final class com/founicy/module/gin/DataRetainPolicy : java/lang/Enum {
+	public static final field NO_RETAIN Lcom/founicy/module/gin/DataRetainPolicy;
+	public static final field RETAIN Lcom/founicy/module/gin/DataRetainPolicy;
+	public static fun valueOf (Ljava/lang/String;)Lcom/founicy/module/gin/DataRetainPolicy;
+	public static fun values ()[Lcom/founicy/module/gin/DataRetainPolicy;
+}
+
+public final class com/founicy/module/gin/DataSourceTransformer {
+	public static final fun toResponseDataSource (Lcom/founicy/module/gin/DataResponse;)Lcom/founicy/module/gin/ResponseDataSource;
+}
+
+public final class com/founicy/module/gin/GinInitializer {
+	public static final field INSTANCE Lcom/founicy/module/gin/GinInitializer;
+	public final fun getDlGinOperatorContext ()Lkotlin/coroutines/CoroutineContext;
+	public static final fun getDlGinTimeout ()Lokio/Timeout;
+	public static final fun getGinOperator ()Lcom/founicy/module/gin/operators/GinOperator;
+	public static final fun getSuccessCodeRange ()Lkotlin/ranges/IntRange;
+	public final fun setDlGinOperatorContext (Lkotlin/coroutines/CoroutineContext;)V
+	public static final fun setDlGinTimeout (Lokio/Timeout;)V
+	public static final fun setGinOperator (Lcom/founicy/module/gin/operators/GinOperator;)V
+	public static final fun setSuccessCodeRange (Lkotlin/ranges/IntRange;)V
+}
+
+public final class com/founicy/module/gin/ResponseDataSource : com/founicy/module/gin/DataResponse {
+	public fun <init> ()V
+	public final fun asLiveData ()Landroidx/lifecycle/LiveData;
+	public final synthetic fun combine (Lretrofit2/Call;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ResponseDataSource;
+	public synthetic fun combine (Lretrofit2/Call;Lretrofit2/Callback;)Lcom/founicy/module/gin/DataResponse;
+	public fun combine (Lretrofit2/Call;Lretrofit2/Callback;)Lcom/founicy/module/gin/ResponseDataSource;
+	public fun concat (Lcom/founicy/module/gin/DataResponse;)Lcom/founicy/module/gin/DataResponse;
+	public final fun dataRetainPolicy (Lcom/founicy/module/gin/DataRetainPolicy;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final fun getCall ()Lretrofit2/Call;
+	public final fun getCallback ()Lretrofit2/Callback;
+	public final fun getConcatStrategy ()Lcom/founicy/module/gin/DataResponse$ConcatStrategy;
+	public final fun getData ()Ljava/lang/Object;
+	public fun invalidate ()V
+	public synthetic fun joinDisposable (Lcom/founicy/module/gin/disposables/CompositeDisposable;)Lcom/founicy/module/gin/DataResponse;
+	public fun joinDisposable (Lcom/founicy/module/gin/disposables/CompositeDisposable;)Lcom/founicy/module/gin/ResponseDataSource;
+	public synthetic fun observeResponse (Lcom/founicy/module/gin/ResponseObserver;)Lcom/founicy/module/gin/DataResponse;
+	public fun observeResponse (Lcom/founicy/module/gin/ResponseObserver;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final synthetic fun observeResponse (Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final fun postValue (Lcom/founicy/module/gin/ApiResponse;)V
+	public synthetic fun request ()Lcom/founicy/module/gin/DataResponse;
+	public fun request ()Lcom/founicy/module/gin/ResponseDataSource;
+	public final synthetic fun request (Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ResponseDataSource;
+	public synthetic fun retry (IJ)Lcom/founicy/module/gin/DataResponse;
+	public fun retry (IJ)Lcom/founicy/module/gin/ResponseDataSource;
+	public final fun setCall (Lretrofit2/Call;)V
+	public final fun setCallback (Lretrofit2/Callback;)V
+	public final fun setConcatStrategy (Lcom/founicy/module/gin/DataResponse$ConcatStrategy;)V
+	public final synthetic fun suspendCombine (Lretrofit2/Call;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final synthetic fun suspendCombine (Lretrofit2/Call;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/ResponseDataSource;
+	public static synthetic fun suspendCombine$default (Lcom/founicy/module/gin/ResponseDataSource;Lretrofit2/Call;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final synthetic fun suspendRequest (Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/ResponseDataSource;
+	public final synthetic fun suspendRequest (Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/ResponseDataSource;
+	public static synthetic fun suspendRequest$default (Lcom/founicy/module/gin/ResponseDataSource;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/founicy/module/gin/ResponseDataSource;
+}
+
+public abstract interface class com/founicy/module/gin/ResponseObserver {
+	public abstract fun observe (Lcom/founicy/module/gin/ApiResponse;)V
+}
+
+public final class com/founicy/module/gin/ResponseTransformer {
+	public static final synthetic fun combineDataSource (Lretrofit2/Call;Lcom/founicy/module/gin/DataResponse;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/DataResponse;
+	public static final synthetic fun getCallbackFromOnResult (Lkotlin/jvm/functions/Function1;)Lretrofit2/Callback;
+	public static final synthetic fun getCallbackFromOnResultOnCoroutinesScope (Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Lretrofit2/Callback;
+	public static final synthetic fun getCallbackFromOnResultWithContext (Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lretrofit2/Callback;
+	public static synthetic fun getCallbackFromOnResultWithContext$default (Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lretrofit2/Callback;
+	public static final fun getOrElse (Lcom/founicy/module/gin/ApiResponse;Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun getOrElse (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final fun getOrNull (Lcom/founicy/module/gin/ApiResponse;)Ljava/lang/Object;
+	public static final fun getOrThrow (Lcom/founicy/module/gin/ApiResponse;)Ljava/lang/Object;
+	public static final fun map (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lcom/founicy/module/gin/ApiErrorModelMapper;)Ljava/lang/Object;
+	public static final synthetic fun map (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lcom/founicy/module/gin/ApiErrorModelMapper;Lkotlin/jvm/functions/Function1;)V
+	public static final fun map (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final fun map (Lcom/founicy/module/gin/ApiResponse$Success;Lcom/founicy/module/gin/ApiSuccessModelMapper;)Ljava/lang/Object;
+	public static final synthetic fun map (Lcom/founicy/module/gin/ApiResponse$Success;Lcom/founicy/module/gin/ApiSuccessModelMapper;Lkotlin/jvm/functions/Function1;)V
+	public static final fun map (Lcom/founicy/module/gin/ApiResponse$Success;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun merge (Lcom/founicy/module/gin/ApiResponse;[Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiResponseMergePolicy;)Lcom/founicy/module/gin/ApiResponse;
+	public static synthetic fun merge$default (Lcom/founicy/module/gin/ApiResponse;[Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiResponseMergePolicy;ILjava/lang/Object;)Lcom/founicy/module/gin/ApiResponse;
+	public static final fun message (Lcom/founicy/module/gin/ApiResponse$Failure$Error;)Ljava/lang/String;
+	public static final fun message (Lcom/founicy/module/gin/ApiResponse$Failure$Exception;)Ljava/lang/String;
+	public static final synthetic fun onError (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiErrorModelMapper;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onError (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onException (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onFailure (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onProcedure (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onSuccess (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiSuccessModelMapper;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun onSuccess (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun operator (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/operators/ApiResponseOperator;)Lcom/founicy/module/gin/ApiResponse;
+	public static final synthetic fun request (Lretrofit2/Call;Lkotlin/jvm/functions/Function1;)Lretrofit2/Call;
+	public static final synthetic fun suspendCombineDataSource (Lretrofit2/Call;Lcom/founicy/module/gin/DataResponse;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/DataResponse;
+	public static final synthetic fun suspendCombineDataSource (Lretrofit2/Call;Lcom/founicy/module/gin/DataResponse;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function2;)Lcom/founicy/module/gin/DataResponse;
+	public static synthetic fun suspendCombineDataSource$default (Lretrofit2/Call;Lcom/founicy/module/gin/DataResponse;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/founicy/module/gin/DataResponse;
+	public static final synthetic fun suspendMap (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lcom/founicy/module/gin/ApiErrorModelMapper;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendMap (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendMap (Lcom/founicy/module/gin/ApiResponse$Success;Lcom/founicy/module/gin/ApiSuccessModelMapper;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendMap (Lcom/founicy/module/gin/ApiResponse$Success;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnError (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiErrorModelMapper;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnError (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnException (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnFailure (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnProcedure (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnSuccess (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/ApiSuccessModelMapper;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOnSuccess (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun suspendOperator (Lcom/founicy/module/gin/ApiResponse;Lcom/founicy/module/gin/operators/ApiResponseSuspendOperator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun toFlow (Lcom/founicy/module/gin/ApiResponse;)Lkotlinx/coroutines/flow/Flow;
+	public static final synthetic fun toFlow (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun toLiveData (Lcom/founicy/module/gin/ApiResponse;)Landroidx/lifecycle/LiveData;
+	public static final synthetic fun toLiveData (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/LiveData;
+	public static final synthetic fun toSuspendFlow (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final synthetic fun toSuspendLiveData (Lcom/founicy/module/gin/ApiResponse;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/founicy/module/gin/StatusCode : java/lang/Enum {
+	public static final field Accepted Lcom/founicy/module/gin/StatusCode;
+	public static final field AlreadyReported Lcom/founicy/module/gin/StatusCode;
+	public static final field BadGateway Lcom/founicy/module/gin/StatusCode;
+	public static final field BadRequest Lcom/founicy/module/gin/StatusCode;
+	public static final field Conflict Lcom/founicy/module/gin/StatusCode;
+	public static final field Continue Lcom/founicy/module/gin/StatusCode;
+	public static final field Created Lcom/founicy/module/gin/StatusCode;
+	public static final field EarlyHints Lcom/founicy/module/gin/StatusCode;
+	public static final field ExpectationFailed Lcom/founicy/module/gin/StatusCode;
+	public static final field FailedDependency Lcom/founicy/module/gin/StatusCode;
+	public static final field Forbidden Lcom/founicy/module/gin/StatusCode;
+	public static final field Found Lcom/founicy/module/gin/StatusCode;
+	public static final field GatewayTimeout Lcom/founicy/module/gin/StatusCode;
+	public static final field Gone Lcom/founicy/module/gin/StatusCode;
+	public static final field HTTPVersionNotSupported Lcom/founicy/module/gin/StatusCode;
+	public static final field IMATeapot Lcom/founicy/module/gin/StatusCode;
+	public static final field IMUsed Lcom/founicy/module/gin/StatusCode;
+	public static final field InternalServerError Lcom/founicy/module/gin/StatusCode;
+	public static final field LengthRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field Locked Lcom/founicy/module/gin/StatusCode;
+	public static final field MethodNotAllowed Lcom/founicy/module/gin/StatusCode;
+	public static final field MisdirectedRequest Lcom/founicy/module/gin/StatusCode;
+	public static final field MovePermanently Lcom/founicy/module/gin/StatusCode;
+	public static final field MultiStatus Lcom/founicy/module/gin/StatusCode;
+	public static final field MultipleChoices Lcom/founicy/module/gin/StatusCode;
+	public static final field NetworkAuthenticationRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field NoContent Lcom/founicy/module/gin/StatusCode;
+	public static final field NonAuthoritative Lcom/founicy/module/gin/StatusCode;
+	public static final field NotAcceptable Lcom/founicy/module/gin/StatusCode;
+	public static final field NotExtended Lcom/founicy/module/gin/StatusCode;
+	public static final field NotFound Lcom/founicy/module/gin/StatusCode;
+	public static final field NotImplemented Lcom/founicy/module/gin/StatusCode;
+	public static final field NotModified Lcom/founicy/module/gin/StatusCode;
+	public static final field OK Lcom/founicy/module/gin/StatusCode;
+	public static final field PartialContent Lcom/founicy/module/gin/StatusCode;
+	public static final field PayloadTooLarge Lcom/founicy/module/gin/StatusCode;
+	public static final field PaymentRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field PermanentRedirect Lcom/founicy/module/gin/StatusCode;
+	public static final field PreconditionFailed Lcom/founicy/module/gin/StatusCode;
+	public static final field PreconditionRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field Processing Lcom/founicy/module/gin/StatusCode;
+	public static final field ProxyAuthenticationRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field RangeNotSatisfiable Lcom/founicy/module/gin/StatusCode;
+	public static final field RequestHeaderFieldsTooLarge Lcom/founicy/module/gin/StatusCode;
+	public static final field RequestTimeout Lcom/founicy/module/gin/StatusCode;
+	public static final field ResetContent Lcom/founicy/module/gin/StatusCode;
+	public static final field SeeOther Lcom/founicy/module/gin/StatusCode;
+	public static final field ServiceUnavailable Lcom/founicy/module/gin/StatusCode;
+	public static final field SwitchProxy Lcom/founicy/module/gin/StatusCode;
+	public static final field SwitchingProtocols Lcom/founicy/module/gin/StatusCode;
+	public static final field TemporaryRedirect Lcom/founicy/module/gin/StatusCode;
+	public static final field TooEarly Lcom/founicy/module/gin/StatusCode;
+	public static final field TooManyRequests Lcom/founicy/module/gin/StatusCode;
+	public static final field URITooLong Lcom/founicy/module/gin/StatusCode;
+	public static final field UnProcessableEntity Lcom/founicy/module/gin/StatusCode;
+	public static final field Unauthorized Lcom/founicy/module/gin/StatusCode;
+	public static final field UnavailableForLegalReasons Lcom/founicy/module/gin/StatusCode;
+	public static final field Unknown Lcom/founicy/module/gin/StatusCode;
+	public static final field UnsupportedMediaType Lcom/founicy/module/gin/StatusCode;
+	public static final field UpgradeRequired Lcom/founicy/module/gin/StatusCode;
+	public static final field UseProxy Lcom/founicy/module/gin/StatusCode;
+	public final fun getCode ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/founicy/module/gin/StatusCode;
+	public static fun values ()[Lcom/founicy/module/gin/StatusCode;
+}
+
+public final class com/founicy/module/gin/coroutines/CoroutinesResponseCallAdapter : retrofit2/CallAdapter {
+	public fun <init> (Ljava/lang/reflect/Type;)V
+	public synthetic fun adapt (Lretrofit2/Call;)Ljava/lang/Object;
+	public fun adapt (Lretrofit2/Call;)Lretrofit2/Call;
+	public fun responseType ()Ljava/lang/reflect/Type;
+}
+
+public final class com/founicy/module/gin/coroutines/CoroutinesResponseCallAdapterFactory : retrofit2/CallAdapter$Factory {
+	public static final field Companion Lcom/founicy/module/gin/coroutines/CoroutinesResponseCallAdapterFactory$Companion;
+	public static final fun create ()Lcom/founicy/module/gin/coroutines/CoroutinesResponseCallAdapterFactory;
+	public fun get (Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lcom/founicy/module/gin/coroutines/CoroutinesResponseCallAdapter;
+	public synthetic fun get (Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/CallAdapter;
+}
+
+public final class com/founicy/module/gin/coroutines/CoroutinesResponseCallAdapterFactory$Companion {
+	public final fun create ()Lcom/founicy/module/gin/coroutines/CoroutinesResponseCallAdapterFactory;
+}
+
+public final class com/founicy/module/gin/disposables/CompositeDisposable {
+	public fun <init> ()V
+	public final fun add (Lcom/founicy/module/gin/disposables/Disposable;)V
+	public final fun clear ()V
+	public final fun getDisposed ()Z
+	public final fun remove (Lcom/founicy/module/gin/disposables/Disposable;)V
+}
+
+public abstract interface class com/founicy/module/gin/disposables/Disposable {
+	public abstract fun dispose ()V
+	public abstract fun isDisposed ()Z
+}
+
+public final class com/founicy/module/gin/disposables/DisposableTransformer {
+	public static final fun disposable (Lretrofit2/Call;)Lcom/founicy/module/gin/disposables/Disposable;
+	public static final fun joinDisposable (Lretrofit2/Call;Lcom/founicy/module/gin/disposables/CompositeDisposable;)Lretrofit2/Call;
+}
+
+public final class com/founicy/module/gin/exceptions/NoContentException : java/lang/Throwable {
+	public fun <init> (ILjava/lang/String;)V
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCode ()I
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public final class com/founicy/module/gin/interceptors/EmptyBodyInterceptor : okhttp3/Interceptor {
+	public static final field INSTANCE Lcom/founicy/module/gin/interceptors/EmptyBodyInterceptor;
+	public fun intercept (Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+}
+
+public abstract class com/founicy/module/gin/operators/ApiResponseOperator : com/founicy/module/gin/operators/GinOperator {
+	public fun <init> ()V
+	public abstract fun onError (Lcom/founicy/module/gin/ApiResponse$Failure$Error;)V
+	public abstract fun onException (Lcom/founicy/module/gin/ApiResponse$Failure$Exception;)V
+	public abstract fun onSuccess (Lcom/founicy/module/gin/ApiResponse$Success;)V
+}
+
+public abstract class com/founicy/module/gin/operators/ApiResponseSuspendOperator : com/founicy/module/gin/operators/GinOperator {
+	public fun <init> ()V
+	public abstract fun onError (Lcom/founicy/module/gin/ApiResponse$Failure$Error;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun onException (Lcom/founicy/module/gin/ApiResponse$Failure$Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun onSuccess (Lcom/founicy/module/gin/ApiResponse$Success;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/founicy/module/gin/operators/GinOperator {
+}
+

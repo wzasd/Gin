@@ -1,3 +1,19 @@
+/*
+ * Designed and developed by 2020 wzasd (Jeffrey wang)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 @file:Suppress("unused")
 @file:JvmName("ResponseTransformer")
 @file:JvmMultifileClass
@@ -39,7 +55,7 @@ public inline fun <T> Call<T>.request(
 }
 
 /**
- 
+
  *
  * Combines a [DataResponse] to the call for processing response data more handy.
  */
@@ -50,7 +66,7 @@ public inline fun <T> Call<T>.combineDataSource(
 ): DataResponse<T> = dataSource.combine(this, getCallbackFromOnResult(onResult))
 
 /**
- 
+
  *
  * Combines a [DataResponse] to the call for processing response data more handy.
  */
@@ -63,7 +79,7 @@ public inline fun <T> Call<T>.suspendCombineDataSource(
 ): DataResponse<T> = dataSource.combine(this, getCallbackFromOnResultOnCoroutinesScope(coroutineScope, onResult))
 
 /**
- 
+
  *
  * Combines a [DataResponse] to the call for processing response data more handy.
  */
@@ -76,7 +92,7 @@ public inline fun <T> Call<T>.suspendCombineDataSource(
 ): DataResponse<T> = dataSource.combine(this, getCallbackFromOnResultWithContext(context, onResult))
 
 /**
- 
+
  *
  * Returns a response callback from an onResult lambda.
  *
@@ -101,7 +117,7 @@ internal inline fun <T> getCallbackFromOnResult(
 }
 
 /**
- 
+
  *
  * Returns a response callback from an onResult lambda.
  *
@@ -131,7 +147,7 @@ internal inline fun <T> getCallbackFromOnResultOnCoroutinesScope(
 }
 
 /**
- 
+
  *
  * Returns a response callback from an onResult lambda.
  *
@@ -163,7 +179,7 @@ internal inline fun <T> getCallbackFromOnResultWithContext(
 }
 
 /**
- 
+
  *
  * Returns the encapsulated data if this instance represents [ApiResponse.Success] or
  * returns null if it is [ApiResponse.Failure.Error] or [ApiResponse.Failure.Exception].
@@ -179,7 +195,7 @@ public fun <T> ApiResponse<T>.getOrNull(): T? {
 }
 
 /**
- 
+
  *
  * Returns the encapsulated data if this instance represents [ApiResponse.Success] or
  * returns the [defaultValue] if it is [ApiResponse.Failure.Error] or [ApiResponse.Failure.Exception].
@@ -195,7 +211,7 @@ public fun <T> ApiResponse<T>.getOrElse(defaultValue: T): T {
 }
 
 /**
- 
+
  *
  * Returns the encapsulated data if this instance represents [ApiResponse.Success] or
  * invokes the lambda [defaultValue] that returns [T] if it is [ApiResponse.Failure.Error] or [ApiResponse.Failure.Exception].
@@ -211,7 +227,7 @@ public inline fun <T> ApiResponse<T>.getOrElse(defaultValue: () -> T): T {
 }
 
 /**
- 
+
  *
  * Returns the encapsulated data if this instance represents [ApiResponse.Success] or
  * throws the encapsulated Throwable exception if it is [ApiResponse.Failure.Error] or [ApiResponse.Failure.Exception].
@@ -230,7 +246,7 @@ public fun <T> ApiResponse<T>.getOrThrow(): T {
 }
 
 /**
- 
+
  *
  * A scope function that would be executed for handling successful responses if the request succeeds.
  *
@@ -249,7 +265,7 @@ public inline fun <T> ApiResponse<T>.onSuccess(
 }
 
 /**
- 
+
  *
  * A scope function that would be executed for handling successful responses if the request succeeds with a [ApiSuccessModelMapper].
  *
@@ -270,7 +286,7 @@ public inline fun <T, V> ApiResponse<T>.onSuccess(
 }
 
 /**
- 
+
  *
  * A suspension scope function that would be executed for handling successful responses if the request succeeds.
  *
@@ -290,7 +306,7 @@ public suspend inline fun <T> ApiResponse<T>.suspendOnSuccess(
 }
 
 /**
- 
+
  *
  * A suspension scope function that would be executed for handling successful responses if the request succeeds with a [ApiSuccessModelMapper].
  *
@@ -312,7 +328,7 @@ public suspend inline fun <T, V> ApiResponse<T>.suspendOnSuccess(
 }
 
 /**
- 
+
  *
  * A function that would be executed for handling error responses if the request failed or get an exception.
  *
@@ -331,7 +347,7 @@ public inline fun <T> ApiResponse<T>.onFailure(
 }
 
 /**
- 
+
  *
  * A suspension function that would be executed for handling error responses if the request failed or get an exception.
  *
@@ -351,7 +367,7 @@ public suspend inline fun <T> ApiResponse<T>.suspendOnFailure(
 }
 
 /**
- 
+
  *
  * A scope function that would be executed for handling error responses if the request failed.
  *
@@ -370,7 +386,7 @@ public inline fun <T> ApiResponse<T>.onError(
 }
 
 /**
- 
+
  *
  * A scope function that would be executed for handling error responses if the request failed with a [ApiErrorModelMapper].
  * This function receives a [ApiErrorModelMapper] and returns the mapped result into the scope.
@@ -392,7 +408,7 @@ public inline fun <T, V> ApiResponse<T>.onError(
 }
 
 /**
- 
+
  *
  * A suspension scope function that would be executed for handling error responses if the request failed.
  *
@@ -412,7 +428,7 @@ public suspend inline fun <T> ApiResponse<T>.suspendOnError(
 }
 
 /**
- 
+
  *
  * A suspension scope function that would be executed for handling error responses if the request failed with a [ApiErrorModelMapper].
  * This function receives a [ApiErrorModelMapper] and returns the mapped result into the scope.
@@ -435,7 +451,7 @@ public suspend inline fun <T, V> ApiResponse<T>.suspendOnError(
 }
 
 /**
- 
+
  *
  * A scope function that would be executed for handling exception responses if the request get an exception.
  *
@@ -454,7 +470,7 @@ public inline fun <T> ApiResponse<T>.onException(
 }
 
 /**
- 
+
  *
  * A suspension scope function that would be executed for handling exception responses if the request get an exception.
  *
@@ -474,7 +490,7 @@ public suspend inline fun <T> ApiResponse<T>.suspendOnException(
 }
 
 /**
- 
+
  *
  * A scope function that will be executed for handling successful, error, exception responses.
  *  This function receives and handles [ApiResponse.onSuccess], [ApiResponse.onError],
@@ -498,7 +514,7 @@ public inline fun <T> ApiResponse<T>.onProcedure(
 }
 
 /**
- 
+
  *
  * A suspension scope function that will be executed for handling successful, error, exception responses.
  *  This function receives and handles [ApiResponse.onSuccess], [ApiResponse.onError],
@@ -523,7 +539,7 @@ public suspend inline fun <T> ApiResponse<T>.suspendOnProcedure(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Success] to a customized success response model.
  *
@@ -536,7 +552,7 @@ public fun <T, V> ApiResponse.Success<T>.map(mapper: ApiSuccessModelMapper<T, V>
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Success] to a customized success response model.
  *
@@ -549,7 +565,7 @@ public fun <T, V> ApiResponse.Success<T>.map(mapper: (ApiResponse.Success<T>) ->
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Success] to a customized error response model with a receiver scope lambda.
  *
@@ -567,7 +583,7 @@ public inline fun <T, V> ApiResponse.Success<T>.map(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Success] to a customized error response model with a suspension receiver scope lambda.
  *
@@ -586,7 +602,7 @@ public suspend inline fun <T, V> ApiResponse.Success<T>.suspendMap(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Success] to a customized error response model with a suspension receiver scope lambda.
  *
@@ -603,7 +619,7 @@ public suspend inline fun <T, V> ApiResponse.Success<T>.suspendMap(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Failure.Error] to a customized error response model.
  *
@@ -616,7 +632,7 @@ public fun <T, V> ApiResponse.Failure.Error<T>.map(mapper: ApiErrorModelMapper<V
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Failure.Error] to a customized error response model.
  *
@@ -629,7 +645,7 @@ public fun <T, V> ApiResponse.Failure.Error<T>.map(mapper: (ApiResponse.Failure.
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Failure.Error] to a customized error response model with a receiver scope lambda.
  *
@@ -647,7 +663,7 @@ public inline fun <T, V> ApiResponse.Failure.Error<T>.map(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Failure.Error] to a customized error response model with a suspension receiver scope lambda.
  *
@@ -666,7 +682,7 @@ public suspend inline fun <T, V> ApiResponse.Failure.Error<T>.suspendMap(
 }
 
 /**
- 
+
  *
  * Maps [ApiResponse.Failure.Error] to a customized error response model with a suspension receiver scope lambda.
  *
@@ -683,7 +699,7 @@ public suspend inline fun <T, V> ApiResponse.Failure.Error<T>.suspendMap(
 }
 
 /**
- 
+
  *
  * Merges multiple [ApiResponse]s as one [ApiResponse] depending on the policy, [ApiResponseMergePolicy].
  * The default policy is [ApiResponseMergePolicy.IGNORE_FAILURE].
@@ -721,7 +737,7 @@ public fun <T> ApiResponse<List<T>>.merge(
 }
 
 /**
- 
+
  *
  * Returns an error message from the [ApiResponse.Failure.Error] that consists of the status and error response.
  *
@@ -737,7 +753,7 @@ public fun <T> ApiResponse.Failure.Error<T>.message(): String = toString()
 public fun <T> ApiResponse.Failure.Exception<T>.message(): String = toString()
 
 /**
- 
+
  *
  * Operates on an [ApiResponse] and return an [ApiResponse].
  * This allows you to handle success and error response instead of the [ApiResponse.onSuccess],
@@ -755,7 +771,7 @@ public fun <T, V : ApiResponseOperator<T>> ApiResponse<T>.operator(
 }
 
 /**
- 
+
  *
  * Operates on an [ApiResponse] and return an [ApiResponse] which should be handled in the suspension scope.
  * This allows you to handle success and error response instead of the [ApiResponse.suspendOnSuccess],
@@ -774,7 +790,7 @@ public suspend fun <T, V : ApiResponseSuspendOperator<T>> ApiResponse<T>.suspend
 }
 
 /**
- 
+
  *
  * Returns a [LiveData] which contains successful data if the response is a [ApiResponse.Success].
  *
@@ -789,7 +805,7 @@ public fun <T> ApiResponse<T>.toLiveData(): LiveData<T> {
 }
 
 /**
- 
+
  *
  * Returns a [LiveData] which contains transformed data using successful data if the response is a [ApiResponse.Success].
  *
@@ -809,7 +825,7 @@ public inline fun <T, R> ApiResponse<T>.toLiveData(
 }
 
 /**
- 
+
  *
  * Returns a [LiveData] which contains transformed data using successful data if the response is a [ApiResponse.Success].
  *
@@ -830,7 +846,7 @@ public suspend inline fun <T, R> ApiResponse<T>.toSuspendLiveData(
 }
 
 /**
- 
+
  *
  * Returns a [Flow] which emits successful data if the response is a [ApiResponse.Success] and the data is not null.
  *
@@ -846,7 +862,7 @@ public fun <T> ApiResponse<T>.toFlow(): Flow<T> {
 }
 
 /**
- 
+
  *
  * Returns a [Flow] which contains transformed data using successful data
  * if the response is a [ApiResponse.Success] and the data is not null.
@@ -867,7 +883,7 @@ public inline fun <T, R> ApiResponse<T>.toFlow(
 }
 
 /**
- 
+
  *
  * Returns a [Flow] which contains transformed data using successful data
  * if the response is a [ApiResponse.Success] and the data is not null.

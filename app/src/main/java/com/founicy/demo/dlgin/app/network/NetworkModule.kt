@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2020 founicy(Jeffrey wang)
+ * Designed and developed by 2020 wzasd (Jeffrey wang)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ object NetworkModule {
     .addConverterFactory(GsonConverterFactory.create())
 
     /* asynchronous supports */
-     .addCallAdapterFactory(DataResponseCallAdapterFactory.create())
+    .addCallAdapterFactory(DataResponseCallAdapterFactory.create())
 
     /* coroutines supports */
     .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory.create())
