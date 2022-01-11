@@ -9,7 +9,7 @@ ext.versions = [
         ktlintGradle     : '0.41.0',
         dokkaGradle      : '1.4.32',
         binaryValidator  : '0.7.1',
-        mavenPublish     : '0.15.1',
+        mavenPublish     : '0.18.0',
 
         kotlin           : '1.5.31',
         core_ktx         : '1.7.0',
